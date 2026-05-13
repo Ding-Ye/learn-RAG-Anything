@@ -25,9 +25,11 @@ source. You can `go run ./agents/sNN-*` for any chapter individually.
 | s08 | pipeline            | End-to-end parse → chunk → embed → store → answer | `go run ./agents/s08-pipeline`     |
 
 Plus bilingual documentation under [`docs/en`](./docs/en) and
-[`docs/zh`](./docs/zh), an end-to-end trace
-([`s_full-integration`](./docs/en/s_full-integration.md)), an appendix on
-multi-modal RAG, and an upstream-file map.
+[`docs/zh`](./docs/zh):
+
+- End-to-end trace: [`s_full-integration`](./docs/en/s_full-integration.md)
+- Appendix A: [Multi-modal RAG](./docs/en/appendix-a-multimodal-rag.md) ([中文](./docs/zh/appendix-a-multimodal-rag.md))
+- Appendix B: [Upstream file map](./docs/en/appendix-b-upstream-map.md) ([中文](./docs/zh/appendix-b-upstream-map.md))
 
 ## Repository layout
 

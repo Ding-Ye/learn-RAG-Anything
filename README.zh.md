@@ -23,9 +23,11 @@
 | s07 | prompt-assembler    | Chunks + 问题 → LLM Prompt                            | `go run ./agents/s07-prompt-assembler` |
 | s08 | pipeline            | 端到端 parse → chunk → embed → store → answer        | `go run ./agents/s08-pipeline`     |
 
-此外在 [`docs/zh`](./docs/zh) 中提供双语对照的章节讲解、一个端到端
-追踪文档 ([`s_full-integration`](./docs/zh/s_full-integration.md))、
-一篇关于多模态 RAG 的附录，以及一份上游文件索引。
+此外在 [`docs/zh`](./docs/zh) 提供完整双语文档：
+
+- 端到端追踪：[`s_full-integration`](./docs/zh/s_full-integration.md)
+- 附录 A：[多模态 RAG](./docs/zh/appendix-a-multimodal-rag.md) （[EN](./docs/en/appendix-a-multimodal-rag.md)）
+- 附录 B：[上游文件地图](./docs/zh/appendix-b-upstream-map.md) （[EN](./docs/en/appendix-b-upstream-map.md)）
 
 ## 仓库结构
 
