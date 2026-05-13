@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  go:
+    name: go vet / build / test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+      - name: go vet
+        run: go vet ./...
+      - name: go build
+        run: go build ./...
+      - name: go test
+        run: go test ./...
+
+  docs-parity:
+    name: bilingual docs heading parity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: compare ## heading counts in docs/en vs docs/zh
+        shell: bash
+        run: |
+          set -euo pipefail
+          fail=0
+          for en in docs/en/*.md; do
+            base=$(basename "$en")
+            zh="docs/zh/$base"
+            if [ ! -f "$zh" ]; then
+              echo "MISSING zh mirror: $zh"
+              fail=1
+              continue
+            fi
+            en_count=$(grep -c '^## ' "$en" || true)
+            zh_count=$(grep -c '^## ' "$zh" || true)
+            if [ "$en_count" != "$zh_count" ]; then
+              echo "HEADING COUNT MISMATCH: $en ($en_count) vs $zh ($zh_count)"
+              fail=1
+            else
+              echo "ok: $base ($en_count headings)"
+            fi
+          done
+          exit $fail

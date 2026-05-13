@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>learn-RAG-Anything · curriculum</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 880px; margin: 2.5rem auto; padding: 0 1.25rem;
+    line-height: 1.55;
+  }
+  h1 { margin-bottom: 0.25rem; }
+  .sub { color: #777; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+  th, td { border-bottom: 1px solid #ddd; padding: 0.6rem 0.5rem; text-align: left; }
+  th { background: rgba(0,0,0,0.04); }
+  code { background: rgba(0,0,0,0.05); padding: 0.1rem 0.35rem; border-radius: 3px; }
+  .lang-toggle { float: right; font-size: 0.9rem; }
+  .hidden { display: none; }
+  footer { margin-top: 3rem; color: #888; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <a href="#" onclick="setLang('en');return false;">EN</a> ·
+  <a href="#" onclick="setLang('zh');return false;">中文</a>
+</div>
+
+<div id="en">
+  <h1>learn-RAG-Anything</h1>
+  <p class="sub">A Go companion to HKUDS/RAG-Anything — eight short chapters,
+     one mechanism each, building a tiny but real RAG pipeline.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>Chapter</th><th>What you build</th><th>Doc</th></tr></thead>
+    <tbody>
+      <tr><td>s01</td><td>block-model</td><td>Typed Block / Chunk vocabulary</td><td><a href="../docs/en/s01-block-model.md">en</a></td></tr>
+      <tr><td>s02</td><td>parser</td><td>Markdown → []Block</td><td><a href="../docs/en/s02-parser.md">en</a></td></tr>
+      <tr><td>s03</td><td>chunker</td><td>Blocks → overlapping Chunks</td><td><a href="../docs/en/s03-chunker.md">en</a></td></tr>
+      <tr><td>s04</td><td>embedder</td><td>Hash-based Embedder</td><td><a href="../docs/en/s04-embedder.md">en</a></td></tr>
+      <tr><td>s05</td><td>vector-store</td><td>In-memory cosine top-k</td><td><a href="../docs/en/s05-vector-store.md">en</a></td></tr>
+      <tr><td>s06</td><td>retriever</td><td>Query → top-k chunks</td><td><a href="../docs/en/s06-retriever.md">en</a></td></tr>
+      <tr><td>s07</td><td>prompt-assembler</td><td>Chunks + question → prompt</td><td><a href="../docs/en/s07-prompt-assembler.md">en</a></td></tr>
+      <tr><td>s08</td><td>pipeline</td><td>End-to-end orchestration</td><td><a href="../docs/en/s08-pipeline.md">en</a></td></tr>
+    </tbody>
+  </table>
+
+  <p>Run any chapter with <code>go run ./agents/sNN-name</code>.
+     Full source: <a href="https://github.com/Ding-Ye/learn-RAG-Anything">github.com/Ding-Ye/learn-RAG-Anything</a>.</p>
+</div>
+
+<div id="zh" class="hidden">
+  <h1>learn-RAG-Anything</h1>
+  <p class="sub">对应上游 HKUDS/RAG-Anything 的 Go 学习仓库 ——
+     八个小章节，每章聚焦一个机制，逐步搭出一条小而完整的 RAG 流水线。</p>
+
+  <table>
+    <thead><tr><th>#</th><th>章节</th><th>你将构建</th><th>文档</th></tr></thead>
+    <tbody>
+      <tr><td>s01</td><td>block-model</td><td>类型化 Block / Chunk 词表</td><td><a href="../docs/zh/s01-block-model.md">zh</a></td></tr>
+      <tr><td>s02</td><td>parser</td><td>Markdown → []Block</td><td><a href="../docs/zh/s02-parser.md">zh</a></td></tr>
+      <tr><td>s03</td><td>chunker</td><td>Blocks → 带重叠的 Chunks</td><td><a href="../docs/zh/s03-chunker.md">zh</a></td></tr>
+      <tr><td>s04</td><td>embedder</td><td>哈希式 Embedder</td><td><a href="../docs/zh/s04-embedder.md">zh</a></td></tr>
+      <tr><td>s05</td><td>vector-store</td><td>内存余弦 top-k</td><td><a href="../docs/zh/s05-vector-store.md">zh</a></td></tr>
+      <tr><td>s06</td><td>retriever</td><td>Query → top-k chunks</td><td><a href="../docs/zh/s06-retriever.md">zh</a></td></tr>
+      <tr><td>s07</td><td>prompt-assembler</td><td>Chunks + 问题 → prompt</td><td><a href="../docs/zh/s07-prompt-assembler.md">zh</a></td></tr>
+      <tr><td>s08</td><td>pipeline</td><td>端到端编排</td><td><a href="../docs/zh/s08-pipeline.md">zh</a></td></tr>
+    </tbody>
+  </table>
+
+  <p>任意章节均可单独运行：<code>go run ./agents/sNN-name</code>。
+     源码：<a href="https://github.com/Ding-Ye/learn-RAG-Anything">github.com/Ding-Ye/learn-RAG-Anything</a>。</p>
+</div>
+
+<footer>
+  Apache-2.0 · upstream MIT (commit 146828f7…)
+</footer>
+
+<script>
+function setLang(l) {
+  document.getElementById('en').classList.toggle('hidden', l !== 'en');
+  document.getElementById('zh').classList.toggle('hidden', l !== 'zh');
+}
+</script>
+</body>
+</html>
